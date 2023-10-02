@@ -1,0 +1,27 @@
+
+
+//User function Template for Java
+
+class Solution {
+    static int isPerfectNumber(long N) {
+        int i;
+        long n=(long)(Math.sqrt(N));
+        long c=1;
+        for(i=2;i<=n;i++)
+        {
+            if(N%i==0)
+            {
+                c+=(i+N/i);
+                //System.out.println(i);
+            }
+        }
+        if(c==N && N!=1)
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+};
