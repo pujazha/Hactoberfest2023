@@ -1,18 +1,16 @@
-public class Tower {
-    public static void towerOfHanoi(int n, String src, String helper, String dest) {
-        if(n == 1) {
-        System.out.println("transfer disk " + n + " from " + src + " to " + dest);
-        return;
+
+public class Reverses {
+    public static void printRev(String str, int idx) {
+        if(idx == 0) {
+            System.out.print(str.charAt(idx));
+            return;
         }
-        //transfer top n-1 from src to helper using dest as 'helper'
-        towerOfHanoi(n-1, src, dest, helper);
-        //transfer nth from src to dest
-        System.out.println("transfer disk " + n + " from " + src + " to " + helper);
-        //transfer n-1 from helper to dest using src as 'helper'
-        towerOfHanoi(n-1, helper, src, dest);
-        }
-        public static void main(String args[]) {
-        int n = 3;
-        towerOfHanoi(n, "A", "B", "C");
-        }
-}
+        System.out.print(str.charAt(idx));
+        printRev(str, idx-1);
+
+    }
+    public static void main(String args[]) {
+        String str = "abcd";
+        printRev(str, str.length()-1);
+    }
+
