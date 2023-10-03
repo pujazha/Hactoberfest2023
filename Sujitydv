@@ -1,16 +1,16 @@
 
-public class Reverses {
-    public static void printRev(String str, int idx) {
-        if(idx == 0) {
-            System.out.print(str.charAt(idx));
-            return;
-        }
-        System.out.print(str.charAt(idx));
-        printRev(str, idx-1);
-
-    }
+public class pyaramid {
+    
     public static void main(String args[]) {
-        String str = "abcd";
-        printRev(str, str.length()-1);
-    }
+        int n = 4;
 
+        //outer loop
+        for(int i=1; i<=n; i++) {
+            //inner loop
+            for(int j=1; j<=i; ++j) {
+                System.out.print("* ");
+            }
+           System.out.println();
+        }
+    }          
+}  
