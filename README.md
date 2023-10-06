@@ -30,3 +30,18 @@ Add your name and profile link to the list when you make a contribution!
 
 Thank you for participating in Hacktoberfest and contributing to this project. Happy coding and happy hacking!
 
+##  Project Admin 😎
+
+<table>
+  <tr>
+<td align="center"><a href="https://github.com/pujazha"><img src="https://avatars.githubusercontent.com/u/115912631?v=4" width="100px;" alt=""/><br /><sub><b>PUJA JHA</b></sub></a></td>
+  </tr>
+</table>
+
+## Project Contributors ⭐ 
+<table align="center">
+<tr>
+<td>
+<a href="https://github.com/pujazha/Hactoberfest2023/graphs/contributors" align="center">
+  <img src="https://contrib.rocks/image?repo=pujazha/Hactoberfest2023" /> 
+</a>
