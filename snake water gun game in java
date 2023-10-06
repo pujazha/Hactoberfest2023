@@ -1,0 +1,53 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class SnakeWaterGunGame {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        System.out.println("Welcome to the Snake-Water-Gun Game!");
+        System.out.println("Choose one of the following:");
+        System.out.println("1. Snake");
+        System.out.println("2. Water");
+        System.out.println("3. Gun");
+        System.out.print("Enter your choice (1/2/3): ");
+
+        int playerChoice = scanner.nextInt();
+        String playerChoiceName = getChoiceName(playerChoice);
+
+        int computerChoice = random.nextInt(3) + 1;
+        String computerChoiceName = getChoiceName(computerChoice);
+
+        System.out.println("Your choice: " + playerChoiceName);
+        System.out.println("Computer's choice: " + computerChoiceName);
+
+        String result = determineWinner(playerChoice, computerChoice);
+        System.out.println(result);
+    }
+
+    public static String getChoiceName(int choice) {
+        switch (choice) {
+            case 1:
+                return "Snake";
+            case 2:
+                return "Water";
+            case 3:
+                return "Gun";
+            default:
+                return "Invalid choice";
+        }
+    }
+
+    public static String determineWinner(int playerChoice, int computerChoice) {
+        if (playerChoice == computerChoice) {
+            return "It's a draw!";
+        } else if ((playerChoice == 1 && computerChoice == 2) ||
+                   (playerChoice == 2 && computerChoice == 3) ||
+                   (playerChoice == 3 && computerChoice == 1)) {
+            return "You win!";
+        } else {
+            return "Computer wins!";
+        }
+    }
+}
