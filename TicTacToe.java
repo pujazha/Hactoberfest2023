@@ -3,10 +3,14 @@ import java.util.Scanner;
 public class TicTacToe {
     private char[][] board;
     private char currentPlayer;
+    private String player1Name;
+    private String player2Name;
 
-    public TicTacToe() {
+    public TicTacToe(String player1Name, String player2Name) {
         board = new char[3][3];
         currentPlayer = 'X';
+        this.player1Name = player1Name;
+        this.player2Name = player2Name;
         initializeBoard();
     }
 
@@ -19,7 +23,9 @@ public class TicTacToe {
     }
 
     public void printBoard() {
+        System.out.println("  0 1 2");
         for (int i = 0; i < 3; i++) {
+            System.out.print(i + " ");
             for (int j = 0; j < 3; j++) {
                 System.out.print(board[i][j] + " ");
             }
@@ -78,21 +84,27 @@ public class TicTacToe {
     }
 
     public static void main(String[] args) {
-        TicTacToe game = new TicTacToe();
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Welcome to Tic-Tac-Toe!");
+        System.out.print("Enter Player 1's name: ");
+        String player1Name = scanner.nextLine();
+        System.out.print("Enter Player 2's name: ");
+        String player2Name = scanner.nextLine();
+
+        TicTacToe game = new TicTacToe(player1Name, player2Name);
+
+        System.out.println("Welcome to Tic-Tac-Toe, " + player1Name + " and " + player2Name + "!");
 
         while (true) {
             System.out.println("Current board:");
             game.printBoard();
-            System.out.println("Player " + game.currentPlayer + ", enter your move (row and column): ");
+            System.out.println(player1Name + ", enter your move (row and column): ");
             int row = scanner.nextInt();
             int col = scanner.nextInt();
 
             if (game.makeMove(row, col)) {
                 if (game.checkWin()) {
-                    System.out.println("Player " + game.currentPlayer + " wins!");
+                    System.out.println(player1Name + " wins!");
                     break;
                 } else if (game.isBoardFull()) {
                     System.out.println("It's a draw!");
