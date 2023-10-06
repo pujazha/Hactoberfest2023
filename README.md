@@ -19,8 +19,8 @@ Hacktoberfest is a month-long celebration of open-source software. It encourages
 
 A big thanks to all the wonderful contributors who have made this project possible! Here are some of them:
 
-- [ROSHAN ](https://github.com/your-username)
-- [OUJA JHA](https://github.com/another-contributor)
+- [ROSHAN JHA](https://github.com/roshanzha)
+- [PUJA JHA](https://github.com/pujazha)
 
 Add your name and profile link to the list when you make a contribution!
 
