@@ -1,0 +1,52 @@
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <map>
+using namespace std;
+
+string convertSentenceToNumbers(const string &sentence) {
+    map<string, int> wordToNumber;
+    wordToNumber["one"] = 1;
+    wordToNumber["two"] = 2;
+    wordToNumber["three"] = 3;
+    wordToNumber["four"] = 4;
+    wordToNumber["five"] = 5;
+    wordToNumber["six"] = 6;
+    wordToNumber["seven"] = 7;
+    wordToNumber["eight"] = 8;
+    wordToNumber["nine"] = 9;
+    wordToNumber["zero"] = 0;
+
+    
+
+    stringstream ss(sentence);
+    string word;
+    bool first = true;
+    stringstream result;
+
+    while (ss >> word) {
+        if (wordToNumber.find(word) != wordToNumber.end()) {
+            if (!first) {
+                result << " ";
+            }
+            result << wordToNumber[word];
+            first = false;
+        } else {
+            result << word;
+        }
+    }
+
+    return result.str();
+}
+
+int main() {
+    string sentence;
+    cout << "Enter a sentence containing numbers in words: ";
+    getline(cin, sentence);
+
+    string converted = convertSentenceToNumbers(sentence);
+
+    cout << "Converted sentence: " << converted << endl;
+
+    return 0;
+}
