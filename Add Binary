@@ -8,6 +8,7 @@ class Solution {
             int sum = carry;
             if(i >= 0) sum += a.charAt(i--) - '0';
             if(j >= 0) sum += b.charAt(j--) - '0';
+            System.out.println("hi");
             carry = sum > 1 ? 1 : 0;
             res.append(sum % 2);
         }
