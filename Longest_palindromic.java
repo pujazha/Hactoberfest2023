@@ -1,52 +1,38 @@
-public class QuickSortt {
+public class LongestPalindromicSubstring {
 
     public static void main(String[] args) {
-        int[] array = {12, 4, 5, 6, 7, 3, 1, 15};
-        
-        System.out.println("Original array:");
-        printArray(array);
-        
-        quickSort(array, 0, array.length - 1);
-        
-        System.out.println("\nSorted array:");
-        printArray(array);
+        String input = "babad";
+        String result = longestPalindrome(input);
+        System.out.println("Longest Palindromic Substring: " + result);
     }
 
-    public static void quickSort(int[] array, int low, int high) {
-        if (low < high) {
-            int partitionIndex = partition(array, low, high);
-	  quickSort(array, low, partitionIndex - 1);
-            quickSort(array, partitionIndex + 1, high);
+    public static String longestPalindrome(String s) {
+        if (s == null || s.length() < 1) {
+            return "";
         }
-    }
 
-    public static int partition(int[] array, int low, int high) {
- 
-        int pivot = array[high];
-        int i = low - 1;
+        int start = 0; // Start index of the longest palindromic substring
+        int end = 0;   // End index of the longest palindromic substring
 
-        for (int j = low; j < high; j++) {
-            if (array[j] <= pivot) {
-                i++;
+        for (int i = 0; i < s.length(); i++) {
+            int len1 = expandAroundCenter(s, i, i);     // Odd length palindrome
+            int len2 = expandAroundCenter(s, i, i + 1); // Even length palindrome
+            int len = Math.max(len1, len2);
 
-                int temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
+            if (len > end - start) {
+                start = i - (len - 1) / 2;
+                end = i + len / 2;
             }
         }
 
-       
-        int temp = array[i + 1];
-        array[i + 1] = array[high];
-        array[high] = temp;
-
-        return i + 1;
+        return s.substring(start, end + 1);
     }
 
-    public static void printArray(int[] array) {
-        for (int value : array) {
-            System.out.print(value + " ");
+    private static int expandAroundCenter(String s, int left, int right) {
+        while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
+            left--;
+            right++;
         }
-        System.out.println();
+        return right - left - 1;
     }
 }
