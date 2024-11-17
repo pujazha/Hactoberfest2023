@@ -1,22 +1,20 @@
-# Python 3 code to demonstrate 
+# Python 3 code to demonstrate
 # Least Frequent Character in String
-# naive method 
+# using a more efficient method
 
-# initializing string 
+# initializing string
 test_str = "GeeksforGeeks"
 
 # printing original string
-print ("The original string is : " + test_str)
+print("The original string is: " + test_str)
 
-# using naive method to get
-# Least Frequent Character in String
+# using a dictionary to count frequency of characters
 all_freq = {}
-for i in test_str:
-if i in all_freq:
-all_freq[i] += 1
-else:
-all_freq[i] = 1
-res = min(all_freq, key = all_freq.get) 
+for char in test_str:
+    all_freq[char] = all_freq.get(char, 0) + 1
 
-# printing result 
-print ("The minimum of all characters in GeeksforGeeks is : " + str(res))
+# finding the least frequent character
+least_frequent_char = min(all_freq, key=all_freq.get)
+
+# printing result
+print("The least frequent character in 'GeeksforGeeks' is: " + str(least_frequent_char))
