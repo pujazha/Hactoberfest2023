@@ -1,55 +1,45 @@
-public class Quick_sort  
-{  
-    
-int partition (int a[], int start, int end)  
-{  
-    int pivot = a[end]; // pivot member 
-    int i = (start - 1);  
-  
-    for (int j = start; j <= end - 1; j++)  
-    {  
-        // If current member is smaller than the pivot  
-        if (a[j] < pivot)  
-        {  
-            i++; // increment index of smaller element by 1 
-            int t = a[i];  
-            a[i] = a[j];  
-            a[j] = t;  
-        }  
-    }  
-    int t = a[i+1];  
-    a[i+1] = a[end];  
-    a[end] = t;  
-    return (i + 1);  
-}  
-  
-  
-void quick(int a[], int start, int end) 
-{  
-    if (start < end)  
-    {  
-        int p = partition(a, start, end);  //p is partitioning index  
-        quick(a, start, p - 1);  
-        quick(a, p + 1, end);  
-    }  
-}  
-  
- 
-void printArr(int a[], int n)  
-{  
-    int i;  
-    for (i = 0; i < n; i++)  
-        System.out.print(a[i] + " ");  
-}  
-    public static void main(String[] args) {  
-    int a[] = { 13, 18, 27, 2, 19, 25 };  
-    int n = a.length;  
-    System.out.println("\nBefore sorting array elements are - ");  
-    Quick_sort q1 = new Quick_sort();  
-    q1.printArr(a, n);  
-    q1.quick(a, 0, n - 1);  
-    System.out.println("\nAfter sorting array elements are - ");  
-    q1.printArr(a, n);  
-    System.out.println();  
-    }  
-}  
+import java.util.Scanner;
+import java.util.Arrays;
+public class QuickSort {
+    public static void quickSort(int[] arr) {
+        quickSort(arr, 0, arr.length - 1);
+    }
+    private static void quickSort(int[] arr, int low, int high) {
+        if (low < high) {
+            int pivotIndex = partition(arr, low, high);
+            quickSort(arr, low, pivotIndex - 1);
+            quickSort(arr, pivotIndex + 1, high);
+        }
+    }
+    private static int partition(int[] arr, int low, int high) {
+        int pivot = arr[high];
+        int i = low - 1;
+        for (int j = low; j < high; j++) {
+            if (arr[j] < pivot) {
+                i++;
+                swap(arr, i, j);
+            }
+        }
+        swap(arr, i + 1, high);
+        return i + 1;
+    }
+    private static void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of elements: ");
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        System.out.println("Enter the elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        scanner.close();
+        System.out.println("Original Array: " + Arrays.toString(arr));
+        quickSort(arr);
+        System.out.println("Sorted Array: " + Arrays.toString(arr));
+    }
+}
