@@ -21,6 +21,7 @@ A big thanks to all the wonderful contributors who have made this project possib
 
 - [ROSHAN JHA](https://github.com/roshanzha)
 - [PUJA JHA](https://github.com/pujazha)
+- [Khansa Rahim](https://github.com/KhansaRahimhashmi)
 
 Add your name and profile link to the list when you make a contribution!
 
